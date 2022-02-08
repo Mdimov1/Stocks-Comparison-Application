@@ -1,0 +1,7 @@
+The application is a simple comparison service, which aims to compare which of the given stocks are the best for investment.
+
+The given stocks which we want to compare must be from the same industry.
+
+Current version of the service works only with hardcoded stocks data. In a next versions the may be in a database.
+
+Copyright (C) 2022 Milen Dimov - All Rights Reserved

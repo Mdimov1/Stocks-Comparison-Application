@@ -1,12 +1,15 @@
 /**
  * Copyright (C) 2022 Milen Dimov - All Rights Reserved
  */
-package com.edu.stocks.comparator;
+package com.edu.stocks.service.comparator;
 
 import com.edu.stocks.model.Stock;
 import com.edu.stocks.service.StockService;
+import com.edu.stocks.service.interfaces.IComparisonTypes;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -14,7 +17,8 @@ import java.util.TreeMap;
  * Compare class which purpose is to compare a given stock, to help us
  * to identify which of them is the best choice for investing in it.
  */
-public class StocksComparator {
+@Component
+public class StocksComparator implements IComparisonTypes {
 
     // List with all stocks services for the stocks
     private StockService[] stockServices;
@@ -29,13 +33,13 @@ public class StocksComparator {
     // Map which contains the points and names of the stocks
     private Map<Integer, String> stocksResults = new TreeMap<Integer, String>();
 
-    public StocksComparator(Stock... stocks) {
-        this.stocksCount = stocks.length;
+    public StocksComparator(List<Stock> stocks) {
+        this.stocksCount = stocks.size();
         this.stockPoints = new int[stocksCount];
         this.stockServices = new StockService[stocksCount];
 
         for (int i = 0; i < stocksCount; i++) {
-            this.stockServices[i] = new StockService(stocks[i]);
+            this.stockServices[i] = new StockService(stocks.get(i));
         }
     }
 
@@ -52,6 +56,7 @@ public class StocksComparator {
      * compare all Gross Profit Margins and increase the points of the stock
      * with the best Gross Profit Margin.
      */
+    @Override
     public void compareGrossProfitMargins() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getGrossProfitMargin();
@@ -73,6 +78,7 @@ public class StocksComparator {
      * compare all Net Profit Margins and increase the points of the stock
      * with the best Net Profit Margin.
      */
+    @Override
     public void compareNetProfitMargins() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getNetProfitMargin();
@@ -94,6 +100,7 @@ public class StocksComparator {
      * compare all Debt to Equity Ratios and increase the points of the stock
      * with the best Debt to Equity Ratio.
      */
+    @Override
     public void compareDebtToEquityRatios() {
         int stockIndex = 0;
         double lowestValue = stockServices[0].getDebtToEquityRatio();
@@ -115,6 +122,7 @@ public class StocksComparator {
      * compare all Current Ratios and increase the points of the stock
      * with the best Current Ratio.
      */
+    @Override
     public void compareCurrentRatios() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getCurrentRatio();
@@ -136,6 +144,7 @@ public class StocksComparator {
      * compare all Quick Ratios and increase the points of the stock
      * with the best Quick Ratio.
      */
+    @Override
     public void compareQuickRatios() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getQuickRatio();
@@ -157,6 +166,7 @@ public class StocksComparator {
      * compare all Cash Ratios and increase the points of the stock
      * with the best Cash Ratio.
      */
+    @Override
     public void compareCashRatios() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getCashRatio();
@@ -180,6 +190,7 @@ public class StocksComparator {
      * compare all Price to Sales Rations and increase the points of the stock
      * with the best Price to Sales Ration.
      */
+    @Override
     public void comparePriceToSalesRations() {
         int stockIndex = Integer.MIN_VALUE;
         double lowestValue = Double.MAX_VALUE;
@@ -205,6 +216,7 @@ public class StocksComparator {
      * compare all Return on Equities and increase the points of the stock
      * with the best Return on Equity.
      */
+    @Override
     public void compareReturnOnEquities() {
         int stockIndex = 0;
         double highestValue = Double.MIN_VALUE;
@@ -228,6 +240,7 @@ public class StocksComparator {
      * compare all Return on Assets and increase the points of the stock
      * with the best Return on Assets.
      */
+    @Override
     public void compareReturnOnAssets() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getReturnOnAssets();
@@ -249,6 +262,7 @@ public class StocksComparator {
      * compare all Trailing Price/Earnings Ratios and increase the points of the stock
      * with the best Trailing Price/Earnings Ratio.
      */
+    @Override
     public void compareTrailingPriceEarningsRatios() {
         int stockIndex = 0;
         double lowestValue = stockServices[0].getTrailingPriceEarningsRatio();
@@ -270,6 +284,7 @@ public class StocksComparator {
      * compare all Froward Price/Earnings Ratios and increase the points of the stock
      * with the best Froward Price/Earnings Ratio.
      */
+    @Override
     public void compareFrowardPriceEarningsRatios() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getFrowardPriceEarningsRatio();
@@ -294,6 +309,7 @@ public class StocksComparator {
      * compare all Price to Book Value Ratios and increase the points of the stock
      * with the best Price to Book Value Ratio.
      */
+    @Override
     public void comparePriceToBookValueRatios() {
         int stockIndex = 0;
         double lowestValue = stockServices[0].getPriceToBookValueRatio();
@@ -315,6 +331,7 @@ public class StocksComparator {
      * compare all Tangible Book Values and increase the points of the stock
      * with the best Tangible Book Value.
      */
+    @Override
     public void compareTangibleBookValue() {
         int stockIndex = 0;
         double highestValue = stockServices[0].getPriceToTangibleBookValue();
@@ -336,6 +353,7 @@ public class StocksComparator {
      * compare all Price/Earning to Growth Ratios and increase the points of the stock
      * with the best Price/Earning to Growth Ratio.
      */
+    @Override
     public void comparePriceEarningToGrowthRatio() {
         int stockIndex = 0;
         double lowsetValue = stockServices[0].getPriceEarningsGrowthRatio();
@@ -359,7 +377,7 @@ public class StocksComparator {
      */
     public Map<Integer, String> getStockResults() {
         for (int i = 0; i < stocksCount; i++) {
-            stocksResults.put(stockPoints[i], stockServices[i].getStockName());
+            stocksResults.put(stockPoints[i], stockServices[i].getStock().getName());
         }
 
         return stocksResults;

@@ -1,0 +1,19 @@
+{
+  "name": "Wave",
+  "price": 600.3,
+  "revenue": 733.3,
+  "costOfRevenue": 11.11,
+  "netProfit": 442.2,
+  "totalAssets": 811.1,
+  "currentAssets": 2212.2,
+  "tangibleBookValue": 23.3,
+  "totalLiabilities": 533.33,
+  "currentLiabilities": 14.4,
+  "inventory": 25.3,
+  "shareholdersEquity": 7.3,
+  "cash": 300000.0,
+  "cashEquivalents": 2.33,
+  "trailingPriceToEarningsRatio": 2.3,
+  "forwardPriceToEarningsRatio": 4.7,
+  "pegRatio": 2.24
+}

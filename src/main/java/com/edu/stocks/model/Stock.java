@@ -3,6 +3,14 @@
  */
 package com.edu.stocks.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+@Getter
+@Setter
+@Component
 public class Stock {
 
     // The name of the stock
@@ -89,142 +97,6 @@ public class Stock {
         this.cashEquivalents = cashEquivalents;
         this.trailingPriceToEarningsRatio = trailingPriceToEarningsRatio;
         this.forwardPriceToEarningsRatio = forwardPriceToEarningsRatio;
-        this.pegRatio = pegRatio;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Double getRevenue() {
-        return revenue;
-    }
-
-    public void setRevenue(Double revenue) {
-        this.revenue = revenue;
-    }
-
-    public Double getCostOfRevenue() {
-        return costOfRevenue;
-    }
-
-    public void setCostOfRevenue(Double costOfRevenue) {
-        this.costOfRevenue = costOfRevenue;
-    }
-
-    public Double getNetProfit() {
-        return netProfit;
-    }
-
-    public void setNetProfit(Double netProfit) {
-        this.netProfit = netProfit;
-    }
-
-    public Double getTotalAssets() {
-        return totalAssets;
-    }
-
-    public void setTotalAssets(Double totalAssets) {
-        this.totalAssets = totalAssets;
-    }
-
-    public Double getCurrentAssets() {
-        return currentAssets;
-    }
-
-    public void setCurrentAssets(Double currentAssets) {
-        this.currentAssets = currentAssets;
-    }
-
-    public Double getTangibleBookValue() {
-        return tangibleBookValue;
-    }
-
-    public void setTangibleBookValue(Double tangibleBookValue) {
-        this.tangibleBookValue = tangibleBookValue;
-    }
-
-    public Double getTotalLiabilities() {
-        return totalLiabilities;
-    }
-
-    public void setTotalLiabilities(Double totalLiabilities) {
-        this.totalLiabilities = totalLiabilities;
-    }
-
-    public Double getCurrentLiabilities() {
-        return currentLiabilities;
-    }
-
-    public void setCurrentLiabilities(Double currentLiabilities) {
-        this.currentLiabilities = currentLiabilities;
-    }
-
-    public Double getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Double inventory) {
-        this.inventory = inventory;
-    }
-
-    public Double getShareholdersEquity() {
-        return shareholdersEquity;
-    }
-
-    public void setShareholdersEquity(Double shareholdersEquity) {
-        this.shareholdersEquity = shareholdersEquity;
-    }
-
-    public Double getCash() {
-        return cash;
-    }
-
-    public void setCash(Double cash) {
-        this.cash = cash;
-    }
-
-    public Double getCashEquivalents() {
-        return cashEquivalents;
-    }
-
-    public void setCashEquivalents(Double cashEquivalents) {
-        this.cashEquivalents = cashEquivalents;
-    }
-
-    public Double getTrailingPriceToEarningsRatio() {
-        return trailingPriceToEarningsRatio;
-    }
-
-    public void setTrailingPriceToEarningsRatio(Double trailingPriceToEarningsRatio) {
-        this.trailingPriceToEarningsRatio = trailingPriceToEarningsRatio;
-    }
-
-    public Double getForwardPriceToEarningsRatio() {
-        return forwardPriceToEarningsRatio;
-    }
-
-    public void setForwardPriceToEarningsRatio(Double forwardPriceToEarningsRatio) {
-        this.forwardPriceToEarningsRatio = forwardPriceToEarningsRatio;
-    }
-
-    public Double getPegRatio() {
-        return pegRatio;
-    }
-
-    public void setPegRatio(Double pegRatio) {
         this.pegRatio = pegRatio;
     }
 

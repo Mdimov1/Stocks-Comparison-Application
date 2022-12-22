@@ -1,0 +1,42 @@
+# A deployment is responsible for keeping a set of pods running
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: stocks-comparator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stocks-comparator
+  template:
+    metadata:
+      labels:
+        app: stocks-comparator
+    spec:
+      containers:
+        - name: stocks-comparator-pod
+          image: localhost:5000/stocks-app
+          ports:
+            - containerPort: 8080
+---
+# A service is responsible for enabling network access to a set of pods.
+kind: Service
+apiVersion: v1
+metadata:
+  name: stocks-comparator
+spec:
+  # Expose the service on a static port on each node
+  # so that we can access the service from outside the cluster
+  type: NodePort
+  # When the node receives a request on the static port (30163)
+  # "select pods with the label 'app' set to 'echo-hostname'"
+  # and forward the request to one of them
+  selector:
+    app: stocks-comparator
+  ports:
+    # Three types of ports for a service
+    # nodePort - a static port assigned on each the node
+    # port - port exposed internally in the cluster
+    # targetPort - the container port to send requests to
+    - nodePort: 30002
+      port: 8081

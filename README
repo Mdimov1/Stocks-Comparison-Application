@@ -4,4 +4,7 @@ The given stocks which we want to compare must be from the same industry.
 
 Current version of the service works only with hardcoded stocks data. In a next versions the may be in a database.
 
+Start and build the project locally
+`mvnw spring-boot:run`
+
 Copyright (C) 2022 Milen Dimov - All Rights Reserved
